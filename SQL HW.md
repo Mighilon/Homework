@@ -14,10 +14,13 @@ WHERE c NOT IN (SELECT DISTINCT SUBSTRING(Code, 1, 1) FROM country)
 ```
 Answers:
 - First letter:
+
 	![](./images/task-1.1.png)
 - Second letter:
+
 	![](./images/task-1.2.png)
 - Third letter:
+
 	![](./images/task-1.3.png)
 # Task 2
 ```SQL
@@ -45,6 +48,7 @@ ORDER BY Percentage
 LIMIT 10;
 ```
 ![](./images/task-3.1.png)
+
 Unrelated: In this query Singapore gives >100%. It seems that the data is not 100% accurate. Because of that I learned that Singapore is city-state, for whatever reason I thought that is a big country. What a surprise.
 # Task 4
 
@@ -289,6 +293,6 @@ The most useful was to use 'Socratic questioning'. It takes more time but is mor
 
 I found the AI to be most useful in giving new ideas and helping in learning new things, rather than just asking it to resolve tasks. If the prompts are small it tends to generate queries that don't fit to my ideas, and if I try to steer the AI to give what I want, I can loose myself in a rabbit hole of trial and error. In the end it was faster to do most of the part myself with a bit of help from AI, with suggestions. 
 
-I see the AI as a tool capable of speeding up the development time, only in the case when you have a lot of queries to create. Then I think it's good to invest some time in engineering some good prompts for AI, like in the attached papers from the 'Socratic questioning' paragraph.
+I see the AI as a tool capable of speeding up the development time, only in the case when you have a lot of queries to create. Then I think it's good to invest some time in engineering some good prompts for AI, like in the attached papers (from the task statements) from the 'Socratic questioning' paragraph.
 
 
