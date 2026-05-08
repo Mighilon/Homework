@@ -63,7 +63,7 @@ GROUP BY cl.Language
 ![](./images/task-4.1.png)
 
 The following query gives a more precise result. We take `LifeExpectancy` and multiply it with the part of population which speaks that language. Then we divide it with the total population of respective language. 
-```SQLite
+```SQL
 SELECT SUM(c.LifeExpectancy * cl.Percentage / 100.0 * c.Population) / SUM(cl.Percentage / 100.0 * c.Population) AS LifeExpectancy,
 	cl.Language
 FROM country AS c
