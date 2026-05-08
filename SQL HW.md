@@ -14,11 +14,11 @@ WHERE c NOT IN (SELECT DISTINCT SUBSTRING(Code, 1, 1) FROM country)
 ```
 Answers:
 - First letter:
-	![[Pasted image 20260507164539.png]]
+	![](./images/task-1.1.png)
 - Second letter:
-	![[Pasted image 20260507164614.png]]
+	![](./images/task-1.2.png)
 - Third letter:
-	![[Pasted image 20260507164626.png]]
+	![](./images/task-1.3.png)
 # Task 2
 ```SQL
 WITH A AS (
@@ -31,7 +31,7 @@ SELECT 'Minimum', MIN(Ratio) FROM A
 UNION
 SELECT 'Median', MEDIAN(Ratio) FROM A;
 ```
-![[Pasted image 20260507164213.png|264]]
+![](./images/task-2.1.png)
 # Task 3
 
 ```SQL
@@ -44,8 +44,7 @@ ON country.Capital = city.ID
 ORDER BY Percentage
 LIMIT 10;
 ```
-![[Pasted image 20260507164806.png]]
-
+![](./images/task-3.1.png)
 Unrelated: In this query Singapore gives >100%. It seems that the data is not 100% accurate. Because of that I learned that Singapore is city-state, for whatever reason I thought that is a big country. What a surprise.
 # Task 4
 
@@ -57,7 +56,7 @@ JOIN countrylanguage AS cl
 ON c.Code = cl.CountryCode
 GROUP BY cl.Language
 ```
-![[Pasted image 20260507164948.png]]
+![](./images/task-4.1.png)
 
 The following query gives a more precise result. We take `LifeExpectancy` and multiply it with the part of population which speaks that language. Then we divide it with the total population of respective language. 
 ```SQLite
@@ -68,7 +67,7 @@ JOIN countrylanguage AS cl
 ON c.Code = cl.CountryCode
 GROUP BY cl.Language
 ```
-![[Pasted image 20260507165002.png]]
+![](./images/task-4.2.png)
 
 # Task 5
 Starting from here, everything was done in PostgreSQL.
@@ -88,7 +87,7 @@ from "A"
 join department as d
 on "A"."DepartmentID" = d."DepartmentID"
 ```
-![[Pasted image 20260508104444.png]]
+![](./images/task-5.1.png)
 ``` SQL
 select MAX("cnt")
 from (
@@ -98,7 +97,7 @@ from (
 	group by edh."EmployeeID"
 )
 ```
-![[Pasted image 20260508104904.png]]
+![](./images/task-5.2.png)
 # Task 6
 I used a CTE to get the `ChangeRate` between the `AverageRate` and `EndOfDayRate`. After, in a subquery I used `lag` function to calculate the difference of `ChangeRate` between days.
 ```SQL
@@ -118,7 +117,7 @@ where "Diff" is not null
 order by "Diff" desc
 limit 1
 ```
-![[Pasted image 20260507172001.png]]
+![](./images/task-6.1.png)
 # Task 7
 The recursive CTE calculates all the chains, some of which are duplicates. I used `row_number` to filter and get the chains with maximum depth for every employee.
 ```SQL
@@ -151,7 +150,7 @@ from (
 where "RowNumber" = 1
 order by "EmployeeID"
 ```
-![[Pasted image 20260507172020.png]]
+![](./images/task-7.1.png)
 # Task 8
 
 I tried to find any correlation between the vendor's `CreditRating` and the total monetary amount of transactions, but it could find any strong correlation. We can say that there is some, based on that the `Avg Total Money` is bigger for `CreditRating` 4 and 5, compared to 1, 2, 3. 
@@ -182,7 +181,7 @@ select avg("TotalOrders") as "Avg Total Orders",
 from tmp
 group by tmp."CreditRating"
 ```
-![[Pasted image 20260507174010.png]]
+![](./images/task-8.1.png)
 
 ```SQL
 select v."CreditRating",
@@ -191,7 +190,7 @@ from vendor as v
 group by v."CreditRating"
 order by v."CreditRating"
 ```
-![[Pasted image 20260507173801.png]]
+![](./images/task-8.2.png)
 
 ```SQL
 select v."CreditRating",
@@ -202,7 +201,7 @@ where v."VendorID" in
 group by v."CreditRating"
 order by v."CreditRating"
 ```
-![[Pasted image 20260507180059.png]]
+![](./images/task-8.3.png)
 
 # Task 9
 
@@ -226,7 +225,7 @@ from (
 where "rank" = 1
 group by "Gender"
 ```
-![[Pasted image 20260508102135.png]]
+![](./images/task-9.1.png)
 
 We can observe that the employee pay rate correlates with gender. Even if female employees have a lower maximum pay rate ~63.5$ than male employees 125.5\$, they still have a higher average pay rate of ~19.2\$.
 
@@ -250,7 +249,7 @@ from (
 where "rank" = 1
 group by "MaritalStatus"
 ```
-![[Pasted image 20260508102218.png]]
+![](./images/task-9.2.png)
 
 Employee pay rate correlates with marital status, with single employees earning higher average pay rates than married employees.
 
@@ -275,7 +274,7 @@ where "rank" = 1
 group by "years"
 order by "years"
 ```
-![[Pasted image 20260508102237.png]]
+![](./images/task-9.3.png)
 
 Employee pay rate correlates with age, with younger employees having a lower pay rate compared with older employees. This positive correlation suggests that compensation increases with experience and career progression.
 
